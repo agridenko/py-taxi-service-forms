@@ -6,6 +6,6 @@
     {% csrf_token %}
     <p>Are you sure you want to delete "{{ object }}"?</p>
     <button type="submit" class="btn btn-danger">Delete</button>
-    <a href="{% url "taxi:car-list" %}" class="btn btn-secondary">Cancel</a>
+    <a href="{{ request.META.HTTP_REFERER|default:'/' }}" class="btn btn-secondary">Cancel</a>
   </form>
 {% endblock %}
